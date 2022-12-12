@@ -8,16 +8,21 @@ import { ConcludedList } from "../../components/ConcludedList";
 import { ITodoItem } from "../../interfaces/ITodoItem";
 import { findNextTodoId } from "../../utils/incrementalId";
 
-const initial: ITodoItem = {
+const initial: ITodoItem[] = [{
   id: 0,
-  text: 'Created item',
+  text: 'Primeiro item',
   concluded: false,
-}
-
+},
+{
+  id: 1,
+  text: 'Este é o segundo item da minha lista, e ele é bem maior',
+  concluded: false,
+},
+]
 export function Home() {
 
   const [ view, setView ] = useState<string>('created');
-  const [ todoList, setTodoList ] = useState<ITodoItem[]>([initial])
+  const [ todoList, setTodoList ] = useState<ITodoItem[]>(initial)
   const [ todoText, setTodoText ] = useState<string>('');
 
   const getViewComponent = (viewName: string) => {
@@ -31,7 +36,11 @@ export function Home() {
           />
         );
       case 'concluded':
-        return <ConcludedList items={todoList.filter(item => item.concluded)} />
+        return (
+          <ConcludedList 
+            items={todoList.filter(item => item.concluded)}
+          />
+        );
       default:
         return <></>
     }

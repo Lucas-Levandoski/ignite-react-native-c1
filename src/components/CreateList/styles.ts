@@ -24,9 +24,13 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 8,
   },
   itemTextContent: {
-    color: '#F2F2F2'
+    color: '#F2F2F2',
+    textAlign: 'center',
+    flex: 1,
+    width: '100%'
   }
 })

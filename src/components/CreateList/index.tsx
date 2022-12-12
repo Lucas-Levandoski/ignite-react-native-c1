@@ -19,7 +19,7 @@ export function CreatedList({ items, onDelete, onCheck }: Props) {
         <ScrollView>
           {
             items.map(item => (
-              <View style={styles.itemContainer}>
+              <View style={styles.itemContainer} key={item.id}>
                 <BouncyCheckbox 
                   onPress={isChecked => onCheck(item.id, isChecked)}
                   text={item.text}
