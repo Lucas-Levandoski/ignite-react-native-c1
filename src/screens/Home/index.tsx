@@ -31,7 +31,7 @@ export function Home() {
           />
         );
       case 'concluded':
-        return <ConcludedList items={[]} />
+        return <ConcludedList items={todoList.filter(item => item.concluded)} />
       default:
         return <></>
     }
@@ -43,7 +43,10 @@ export function Home() {
   }
 
   const handleCheckItem = (id: number, isChecked: boolean): void => {
-    setTodoList
+    setTodoList(prev => {
+      prev[prev.findIndex(item => item.id === id)].concluded = isChecked;      
+      return [...prev];
+    })
   }
   
   const handleDeleteItem = (id: number): void => {
