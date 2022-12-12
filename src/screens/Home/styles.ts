@@ -17,9 +17,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   form: {
-    flex: 1,
     height: 54,
-    justifyContent: 'center',
+    alignItems: 'center',
     flexDirection: 'row',
     marginLeft: 24,
     marginRight: 24,
@@ -43,5 +42,57 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 6,
     marginLeft: 4
-  }
+  },
+  content: {
+    marginLeft: 24,
+    marginRight: 24,
+  },
+  navBar: {
+    flex: 1,
+    flexDirection: 'row',
+    height: 20,
+    marginTop: 32,
+    marginBottom: 20,
+    justifyContent: 'space-between',
+  },
+  createdNav: {
+    flexDirection: 'row',
+  },
+  createdNavText: {
+    color: '#4EA8DE',
+    fontWeight: 'bold',
+  },
+  createdNavCounter: {
+    color: '#FFF',
+    marginLeft: 8,
+    backgroundColor: '#333333',
+    height: 20,
+    width: '100%',
+    fontSize: 12,
+    borderRadius: 10,
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  concludedNav: {
+    flexDirection: 'row'
+  },
+  concludedNavText: {
+    color: '#8284FA',
+    fontWeight: 'bold',
+  },
+  concludedNavCounter: {
+    color: '#FFF',
+    marginLeft: 8,
+    backgroundColor: '#333333',
+    height: 20,
+    width: '100%',
+    fontSize: 12,
+    borderRadius: 10,
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
 })
