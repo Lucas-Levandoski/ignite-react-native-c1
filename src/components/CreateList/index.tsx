@@ -1,13 +1,16 @@
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { CiViewList } from "react-icons/ci";
+import { HiOutlineTrash } from "react-icons/hi"
+import { ITodoItem } from "../../interfaces/ITodoItem";
 
 
 type Props = {
-  items: string[]
+  items: ITodoItem[],
+  onDelete: (id: number) => void
 }
 
-export function CreatedList({ items }: Props) {
+export function CreatedList({ items, onDelete }: Props) {
 
   return (
     items.length
@@ -15,7 +18,12 @@ export function CreatedList({ items }: Props) {
         <ScrollView>
           {
             items.map(item => (
-              <p>{item}</p>
+              <View style={styles.itemContainer}>
+                <Text style={styles.itemTextContent}></Text>
+                <TouchableOpacity onPress={() => onDelete(item.id)} >
+                  <HiOutlineTrash />
+                </TouchableOpacity>
+              </View>
             ))
           }
         </ScrollView>

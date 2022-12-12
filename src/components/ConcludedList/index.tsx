@@ -1,8 +1,9 @@
 import { ScrollView, Text, View } from "react-native";
+import { ITodoItem } from "../../interfaces/ITodoItem";
 
 
 type Props = {
-  items: string[]
+  items: ITodoItem[]
 }
 
 export function ConcludedList({ items }: Props) {
@@ -13,7 +14,7 @@ export function ConcludedList({ items }: Props) {
         <ScrollView>
           {
             items.map(item => (
-              <p>{item}</p>
+              <p>{item.text}</p>
             ))
           }
         </ScrollView>

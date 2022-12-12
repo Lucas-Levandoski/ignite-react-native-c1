@@ -15,5 +15,15 @@ export const styles = StyleSheet.create({
   },
   emptyText2: {
     color: '#808080',
+  },
+  itemContainer: {
+    padding: 12,
+    borderRadius: 8,
+    backgroundColor: '#262626',
+    borderColor: '#333333',
+    borderWidth: 1
+  },
+  itemTextContent: {
+
   }
 })
