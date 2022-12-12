@@ -8,17 +8,28 @@ import { ConcludedList } from "../../components/ConcludedList";
 import { ITodoItem } from "../../interfaces/ITodoItem";
 import { findNextTodoId } from "../../utils/incrementalId";
 
+const initial: ITodoItem = {
+  id: 0,
+  text: 'Created item',
+  concluded: false,
+}
+
 export function Home() {
 
   const [ view, setView ] = useState<string>('created');
-  const [ createdList, setCreatedList ] = useState<ITodoItem[]>([])
-  const [ concludedList, setConcludedList ] = useState<ITodoItem[]>([])
+  const [ todoList, setTodoList ] = useState<ITodoItem[]>([initial])
   const [ todoText, setTodoText ] = useState<string>('');
 
   const getViewComponent = (viewName: string) => {
     switch(viewName) {
       case 'created':
-        return <CreatedList items={createdList} onDelete={handleDeleteItem}/>;
+        return (
+          <CreatedList 
+            items={todoList} 
+            onDelete={handleDeleteItem}
+            onCheck={handleCheckItem}
+          />
+        );
       case 'concluded':
         return <ConcludedList items={[]} />
       default:
@@ -27,11 +38,16 @@ export function Home() {
   }
 
   const handleAddItem = (text: string): void => {
-    setCreatedList(prev => [...prev, { id: findNextTodoId(prev), concluded: false, text }])
+    setTodoList(prev => [...prev, { id: findNextTodoId(prev), concluded: false, text }])
+    setTodoText('');
+  }
+
+  const handleCheckItem = (id: number, isChecked: boolean): void => {
+    setTodoList
   }
   
   const handleDeleteItem = (id: number): void => {
-    setCreatedList(prev => prev.filter(item => item.id !== id));
+    setTodoList(prev => prev.filter(item => item.id !== id));
   }
 
   return(
@@ -56,11 +72,11 @@ export function Home() {
         <View style={styles.navBar}>
           <TouchableOpacity style={styles.createdNav} onPress={() => setView('created')}>
             <Text style={styles.createdNavText}>Criadas</Text>
-            <Text style={styles.createdNavCounter}>{createdList.length}</Text>
+            <Text style={styles.createdNavCounter}>{todoList.length}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.concludedNav} onPress={() => setView('concluded')}>
             <Text style={styles.concludedNavText}>Concluídas</Text>
-            <Text style={styles.concludedNavCounter}>{concludedList.length}</Text>
+            <Text style={styles.concludedNavCounter}>{todoList.filter(item => item.concluded).length}</Text>
           </TouchableOpacity>
         </View>
         <View>

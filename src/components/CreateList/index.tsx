@@ -3,14 +3,15 @@ import { styles } from "./styles";
 import { CiViewList } from "react-icons/ci";
 import { HiOutlineTrash } from "react-icons/hi"
 import { ITodoItem } from "../../interfaces/ITodoItem";
-
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 type Props = {
   items: ITodoItem[],
-  onDelete: (id: number) => void
+  onDelete: (id: number) => void,
+  onCheck: (id: number, isChecked: boolean) => void,
 }
 
-export function CreatedList({ items, onDelete }: Props) {
+export function CreatedList({ items, onDelete, onCheck }: Props) {
 
   return (
     items.length
@@ -19,9 +20,15 @@ export function CreatedList({ items, onDelete }: Props) {
           {
             items.map(item => (
               <View style={styles.itemContainer}>
-                <Text style={styles.itemTextContent}></Text>
+                <BouncyCheckbox 
+                  onPress={isChecked => onCheck(item.id, isChecked)}
+                  text={item.text}
+                  textStyle={styles.itemTextContent}
+                  fillColor='#5E60CE'
+                  isChecked={item.concluded}
+                />
                 <TouchableOpacity onPress={() => onDelete(item.id)} >
-                  <HiOutlineTrash />
+                  <HiOutlineTrash color='#808080' size={20} />
                 </TouchableOpacity>
               </View>
             ))
