@@ -25,9 +25,17 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 8
+    marginBottom: 8,
+
   },
   itemTextContent: {
-    color: '#F2F2F2'
+    color: '#F2F2F2',
+    textAlign: 'center',
+  },
+  itemTextContainer: {
+    width: '80%',
+  },
+  itemCheckboxElement: {
+    width: '90%'
   }
 })

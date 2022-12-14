@@ -21,8 +21,10 @@ export function ConcludedList({ items }: Props) {
                 <BouncyCheckbox 
                   text={item.text}
                   textStyle={styles.itemTextContent}
+                  textContainerStyle={styles.itemTextContainer}
                   fillColor='#5E60CE'
                   isChecked={item.concluded}
+                  style={styles.itemCheckboxElement}
                 />
               </View>
             ))

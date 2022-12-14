@@ -24,8 +24,10 @@ export function CreatedList({ items, onDelete, onCheck }: Props) {
                   onPress={isChecked => onCheck(item.id, isChecked)}
                   text={item.text}
                   textStyle={styles.itemTextContent}
+                  textContainerStyle={styles.itemTextContainer}
                   fillColor='#5E60CE'
                   isChecked={item.concluded}
+                  style={styles.itemCheckboxElement}
                 />
                 <TouchableOpacity onPress={() => onDelete(item.id)} >
                   <HiOutlineTrash color='#808080' size={20} />

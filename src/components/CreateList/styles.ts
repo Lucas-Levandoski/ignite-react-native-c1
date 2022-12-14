@@ -30,7 +30,11 @@ export const styles = StyleSheet.create({
   itemTextContent: {
     color: '#F2F2F2',
     textAlign: 'center',
-    flex: 1,
-    width: '100%'
+  },
+  itemTextContainer: {
+    width: '80%',
+  },
+  itemCheckboxElement: {
+    width: '90%'
   }
 })
